@@ -9,7 +9,7 @@ Go bindings for the [HuggingFace Tokenizers](https://github.com/huggingface/toke
 To use `libtokenizers.a` in your go application, either:
 * Place `libtokenizers.a` in /usr/lib/, and compile your app as usual with `go build`.
 * Place `libtokenizers.a` in the go source directory of the tokenizer module 
-(e.g. /home/user/go/pkg/mod/github.com/daulet/tokenizers@v0.6.1/), and compile with
+(e.g. /home/user/go/pkg/mod/github.com/Knights-Analytics/tokenizers@v0.7.0/), and compile with
 `go build -tags tokenizers_srcdir_relative`.
 
 ### Using pre-built binaries
@@ -17,9 +17,9 @@ To use `libtokenizers.a` in your go application, either:
 Build your Go application using pre-built native binaries: `docker build --platform=linux/amd64 -f example/Dockerfile .`
 
 Available binaries:
-* [darwin-arm64](https://github.com/daulet/tokenizers/releases/latest/download/libtokenizers.darwin-arm64.tar.gz)
-* [linux-arm64](https://github.com/daulet/tokenizers/releases/latest/download/libtokenizers.linux-arm64.tar.gz)
-* [linux-amd64](https://github.com/daulet/tokenizers/releases/latest/download/libtokenizers.linux-amd64.tar.gz)
+* [darwin-arm64](https://github.com/Knights-Analytics/tokenizers/releases/latest/download/libtokenizers.darwin-arm64.tar.gz)
+* [linux-arm64](https://github.com/Knights-Analytics/tokenizers/releases/latest/download/libtokenizers.linux-arm64.tar.gz)
+* [linux-amd64](https://github.com/Knights-Analytics/tokenizers/releases/latest/download/libtokenizers.linux-amd64.tar.gz)
 
 ## Getting started
 
@@ -27,7 +27,7 @@ TLDR: [working example](example/main.go).
 
 Load a tokenizer from a JSON config:
 ```go
-import "github.com/daulet/tokenizers"
+import "github.com/Knights-Analytics/tokenizers"
 
 tk, err := tokenizers.FromFile("./data/bert-base-uncased.json")
 if err != nil {
@@ -55,13 +55,13 @@ go test . -bench=. -benchmem -benchtime=10s
 
 goos: darwin
 goarch: arm64
-pkg: github.com/daulet/tokenizers
+pkg: github.com/Knights-Analytics/tokenizers
 BenchmarkEncodeNTimes-10     	  996556	     11851 ns/op	     116 B/op	       6 allocs/op
 BenchmarkEncodeNChars-10      1000000000	     2.446 ns/op	       0 B/op	       0 allocs/op
 BenchmarkDecodeNTimes-10     	 7286056	      1657 ns/op	     112 B/op	       4 allocs/op
 BenchmarkDecodeNTokens-10    	65191378	     211.0 ns/op	       7 B/op	       0 allocs/op
 PASS
-ok  	github.com/daulet/tokenizers	126.681s
+ok  	github.com/Knights-Analytics/tokenizers	126.681s
 ```
 
 ## Contributing
