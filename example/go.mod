@@ -1,5 +1,5 @@
-module github.com/Knights-Analytics/tokenizers/example
+module github.com/knights-analytics/tokenizers/example
 
-go 1.21
+go 1.22
 
-require github.com/Knights-Analytics/tokenizers v0.7.0
+require github.com/knights-analytics/tokenizers v0.8.0

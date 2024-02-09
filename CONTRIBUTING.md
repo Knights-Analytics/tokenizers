@@ -17,7 +17,7 @@ It should look something like this:
 ```
 goos: darwin
 goarch: arm64
-pkg: github.com/Knights-Analytics/tokenizers
+pkg: github.com/knights-analytics/tokenizers
                  │ benchmarks/786da4095f5ca3d598db1236c46401b63874f640.txt │ benchmarks/38a9a14c1c56b113461b0c7350c72de949e23cc2.txt │
                  │                         sec/op                          │              sec/op                vs base              │
 EncodeNTimes-10                                              13.26µ ±   4%                       13.11µ ±   1%  -1.09% (p=0.041 n=6)

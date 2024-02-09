@@ -1,3 +1,3 @@
-module github.com/Knights-Analytics/tokenizers/release
+module github.com/knights-analytics/tokenizers/release
 
-go 1.21.5
+go 1.22
