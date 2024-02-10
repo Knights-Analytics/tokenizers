@@ -1,7 +1,8 @@
-github.com/knights-analytics/tokenizers v0.6.0 h1:y6cSPx5YMrXy9dkt7NGWY1l64iwOpD0YU4j6P1Gwqo8=
-github.com/knights-analytics/tokenizers v0.6.0/go.mod h1:tGnMdZthXdcWY6DGD07IygpwJqiPvG85FQUnhs/wSCs=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/knights-analytics/tokenizers v0.6.0 h1:y6cSPx5YMrXy9dkt7NGWY1l64iwOpD0YU4j6P1Gwqo8=
+github.com/knights-analytics/tokenizers v0.6.0/go.mod h1:tGnMdZthXdcWY6DGD07IygpwJqiPvG85FQUnhs/wSCs=
+github.com/knights-analytics/tokenizers v0.8.0/go.mod h1:8C6oR/TiOPKfsRek7SQHIMFEXeuOzgTANFNWSAPEx8g=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/testify v1.8.2 h1:+h33VjcLVPDHtOdpUCuF+7gSuG3yGIftsP1YvFihtJ8=
