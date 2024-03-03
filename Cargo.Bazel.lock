@@ -1,5 +1,5 @@
 {
-  "checksum": "363a257932c45593cf0e2fff64e4bf9d322d0e78daa33cbf4a942d9292ac4ac4",
+  "checksum": "1594957157d430c30984b46d280a95115fba011ef08e26900295bfb728a1e36d",
   "crates": {
     "aho-corasick 1.1.2": {
       "name": "aho-corasick",
@@ -1656,6 +1656,53 @@
       },
       "license": "MIT OR Apache-2.0"
     },
+    "itertools 0.12.1": {
+      "name": "itertools",
+      "version": "0.12.1",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/itertools/0.12.1/download",
+          "sha256": "ba291022dbbd398a455acf126c1e341954079855bc60dfdda641363bd6922569"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "itertools",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "itertools",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "crate_features": {
+          "common": [
+            "default",
+            "use_alloc",
+            "use_std"
+          ],
+          "selects": {}
+        },
+        "deps": {
+          "common": [
+            {
+              "id": "either 1.10.0",
+              "target": "either"
+            }
+          ],
+          "selects": {}
+        },
+        "edition": "2018",
+        "version": "0.12.1"
+      },
+      "license": "MIT OR Apache-2.0"
+    },
     "itoa 1.0.10": {
       "name": "itoa",
       "version": "1.0.10",
@@ -3048,51 +3095,6 @@
       },
       "license": "MIT OR Apache-2.0"
     },
-    "regex-syntax 0.7.5": {
-      "name": "regex-syntax",
-      "version": "0.7.5",
-      "repository": {
-        "Http": {
-          "url": "https://crates.io/api/v1/crates/regex-syntax/0.7.5/download",
-          "sha256": "dbb5fb1acd8a1a18b3dd5be62d25485eb770e05afb408a9627d14d451bae12da"
-        }
-      },
-      "targets": [
-        {
-          "Library": {
-            "crate_name": "regex_syntax",
-            "crate_root": "src/lib.rs",
-            "srcs": [
-              "**/*.rs"
-            ]
-          }
-        }
-      ],
-      "library_target_name": "regex_syntax",
-      "common_attrs": {
-        "compile_data_glob": [
-          "**"
-        ],
-        "crate_features": {
-          "common": [
-            "default",
-            "std",
-            "unicode",
-            "unicode-age",
-            "unicode-bool",
-            "unicode-case",
-            "unicode-gencat",
-            "unicode-perl",
-            "unicode-script",
-            "unicode-segment"
-          ],
-          "selects": {}
-        },
-        "edition": "2021",
-        "version": "0.7.5"
-      },
-      "license": "MIT OR Apache-2.0"
-    },
     "regex-syntax 0.8.2": {
       "name": "regex-syntax",
       "version": "0.8.2",
@@ -3753,9 +3755,9 @@
       },
       "license": "MIT OR Apache-2.0"
     },
-    "tokenizers 0.10.0": {
+    "tokenizers 0.11.0": {
       "name": "tokenizers",
-      "version": "0.10.0",
+      "version": "0.11.0",
       "repository": null,
       "targets": [],
       "library_target_name": null,
@@ -3770,24 +3772,24 @@
               "target": "libc"
             },
             {
-              "id": "tokenizers 0.15.1",
+              "id": "tokenizers 0.15.2",
               "target": "tokenizers"
             }
           ],
           "selects": {}
         },
         "edition": "2021",
-        "version": "0.10.0"
+        "version": "0.11.0"
       },
       "license": null
     },
-    "tokenizers 0.15.1": {
+    "tokenizers 0.15.2": {
       "name": "tokenizers",
-      "version": "0.15.1",
+      "version": "0.15.2",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/tokenizers/0.15.1/download",
-          "sha256": "6db445cceba5dfeb0f9702be7d6bfd91801ddcbe8fe8722defe7f2e96da75812"
+          "url": "https://crates.io/api/v1/crates/tokenizers/0.15.2/download",
+          "sha256": "3dd47962b0ba36e7fd33518fbf1754d136fd1474000162bbf2a8b5fcb2d3654d"
         }
       },
       "targets": [
@@ -3845,7 +3847,7 @@
               "target": "indicatif"
             },
             {
-              "id": "itertools 0.11.0",
+              "id": "itertools 0.12.1",
               "target": "itertools"
             },
             {
@@ -3885,7 +3887,7 @@
               "target": "regex"
             },
             {
-              "id": "regex-syntax 0.7.5",
+              "id": "regex-syntax 0.8.2",
               "target": "regex_syntax"
             },
             {
@@ -3929,7 +3931,7 @@
           ],
           "selects": {}
         },
-        "version": "0.15.1"
+        "version": "0.15.2"
       },
       "license": "Apache-2.0"
     },
@@ -4669,7 +4671,7 @@
   },
   "binary_crates": [],
   "workspace_members": {
-    "tokenizers 0.10.0": ""
+    "tokenizers 0.11.0": ""
   },
   "conditions": {
     "aarch64-apple-darwin": [
