@@ -20,6 +20,18 @@ type Tokenizer struct {
 	tokenizer unsafe.Pointer
 }
 
+type tokenizerOpts struct {
+	encodeSpecialTokens C.bool
+}
+
+type TokenizerOption func(to *tokenizerOpts)
+
+func WithEncodeSpecialTokens() TokenizerOption {
+	return func(to *tokenizerOpts) {
+		to.encodeSpecialTokens = C.bool(true)
+	}
+}
+
 type TruncationDirection int
 
 const (
@@ -29,8 +41,15 @@ const (
 
 var _ io.Closer = (*Tokenizer)(nil)
 
-func FromBytes(data []byte) (*Tokenizer, error) {
-	tokenizer := C.from_bytes((*C.uchar)(unsafe.Pointer(&data[0])), C.uint(len(data)))
+func FromBytes(data []byte, opts ...TokenizerOption) (*Tokenizer, error) {
+	allOpts := &tokenizerOpts{
+		// by default, we do not encode special tokens
+		encodeSpecialTokens: C.bool(false),
+	}
+	for _, opt := range opts {
+		opt(allOpts)
+	}
+	tokenizer := C.from_bytes((*C.uchar)(unsafe.Pointer(&data[0])), C.uint(len(data)), (*C.struct_TokenizerOptions)(unsafe.Pointer(allOpts)))
 	return &Tokenizer{tokenizer: tokenizer}, nil
 }
 
@@ -66,7 +85,7 @@ type Encoding struct {
 	Offsets           []Offset
 }
 
-type EncodeOptions struct {
+type encodeOpts struct {
 	AddSpecialTokens C.bool
 
 	ReturnTypeIDs           C.bool
@@ -76,7 +95,7 @@ type EncodeOptions struct {
 	ReturnOffsets           C.bool
 }
 
-type EncodeOption func(eo *EncodeOptions)
+type EncodeOption func(eo *encodeOpts)
 
 func uintVecToSlice(arrPtr *C.uint, len int) []uint32 {
 	arr := unsafe.Slice(arrPtr, len)
@@ -99,7 +118,7 @@ func offsetVecToSlice(arrPtr *C.struct_Tuple, len int) []Offset {
 func (t *Tokenizer) Encode(str string, addSpecialTokens bool) ([]uint32, []string) {
 	cStr := C.CString(str)
 	defer C.free(unsafe.Pointer(cStr))
-	options := EncodeOptions{
+	options := encodeOpts{
 		AddSpecialTokens: C.bool(addSpecialTokens),
 		ReturnTokens:     C.bool(true),
 	}
@@ -123,7 +142,7 @@ func (t *Tokenizer) Encode(str string, addSpecialTokens bool) ([]uint32, []strin
 }
 
 func WithReturnAllAttributes() EncodeOption {
-	return func(eo *EncodeOptions) {
+	return func(eo *encodeOpts) {
 		eo.ReturnTypeIDs = C.bool(true)
 		eo.ReturnSpecialTokensMask = C.bool(true)
 		eo.ReturnAttentionMask = C.bool(true)
@@ -133,25 +152,25 @@ func WithReturnAllAttributes() EncodeOption {
 }
 
 func WithReturnTypeIDs() EncodeOption {
-	return func(eo *EncodeOptions) {
+	return func(eo *encodeOpts) {
 		eo.ReturnTypeIDs = C.bool(true)
 	}
 }
 
 func WithReturnSpecialTokensMask() EncodeOption {
-	return func(eo *EncodeOptions) {
+	return func(eo *encodeOpts) {
 		eo.ReturnSpecialTokensMask = C.bool(true)
 	}
 }
 
 func WithReturnTokens() EncodeOption {
-	return func(eo *EncodeOptions) {
+	return func(eo *encodeOpts) {
 		eo.ReturnTokens = C.bool(true)
 	}
 }
 
 func WithReturnAttentionMask() EncodeOption {
-	return func(eo *EncodeOptions) {
+	return func(eo *encodeOpts) {
 		eo.ReturnAttentionMask = C.bool(true)
 	}
 }
@@ -166,7 +185,7 @@ func (t *Tokenizer) EncodeWithOptions(str string, addSpecialTokens bool, opts ..
 	cStr := C.CString(str)
 	defer C.free(unsafe.Pointer(cStr))
 
-	encOptions := EncodeOptions{
+	encOptions := encodeOpts{
 		AddSpecialTokens: C.bool(addSpecialTokens),
 	}
 	for _, opt := range opts {

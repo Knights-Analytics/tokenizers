@@ -16,6 +16,10 @@ struct EncodeOptions {
   bool return_offsets;
 };
 
+struct TokenizerOptions {
+  bool encode_special_tokens;
+};
+
 struct Buffer {
   uint32_t *ids;
   uint32_t *type_ids;
@@ -26,7 +30,7 @@ struct Buffer {
   uint32_t len;
 };
 
-void *from_bytes(const uint8_t *config, uint32_t len);
+void *from_bytes(const uint8_t *config, uint32_t len, const struct TokenizerOptions *options);
 
 void *from_bytes_with_truncation(const uint8_t *config, uint32_t len, uint32_t max_len, uint8_t direction);
 
