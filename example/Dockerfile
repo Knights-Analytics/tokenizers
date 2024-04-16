@@ -2,7 +2,7 @@
 
 FROM golang:1.22 as builder-go
 ARG TARGETPLATFORM
-ARG VERSION=v0.8.0
+ARG VERSION=v0.11.0
 WORKDIR /workspace
 RUN curl -fsSL https://github.com/knights-analytics/tokenizers/releases/download/${VERSION}/libtokenizers.$(echo ${TARGETPLATFORM} | tr / -).tar.gz | tar xvz
 COPY ./example .

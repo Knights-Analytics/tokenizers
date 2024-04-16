@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.3
 
-FROM rust:1.74 as builder-rust
+FROM rust:1.77 as builder-rust
 ARG TARGETPLATFORM
 WORKDIR /workspace
 COPY ./src ./src
@@ -8,7 +8,7 @@ COPY ./Cargo.toml ./Cargo.toml
 COPY ./Cargo.lock ./Cargo.lock
 RUN cargo build --release
 
-FROM golang:1.21 as builder-go
+FROM golang:1.22 as builder-go
 ARG TARGETPLATFORM
 WORKDIR /workspace
 COPY ./release/go.mod   .
