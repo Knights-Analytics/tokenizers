@@ -176,7 +176,7 @@ func WithReturnAttentionMask() EncodeOption {
 }
 
 func WithReturnOffsets() EncodeOption {
-	return func(eo *EncodeOptions) {
+	return func(eo *encodeOpts) {
 		eo.ReturnOffsets = C.bool(true)
 	}
 }
