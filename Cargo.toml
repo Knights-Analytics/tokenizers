@@ -1,6 +1,6 @@
 [package]
 name = "tokenizers" 
-version = "0.11.0"
+version = "0.12.0"
 edition = "2021"
 
 [lib]
@@ -8,7 +8,7 @@ crate-type = ["staticlib"]
 
 [dependencies]
 libc = "0.2.153"
-tokenizers = {version = "0.15.2" }
+tokenizers = {version = "0.19.1" }
 
 [registries.crates-io]
 # speed up "Updating crates.io index"
