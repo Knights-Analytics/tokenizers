@@ -3,7 +3,7 @@ load("@crate_index//:defs.bzl", "aliases", "all_crate_deps")
 load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 load("@rules_rust//rust:defs.bzl", "rust_static_library")
 
-# gazelle:prefix github.com/daulet/tokenizers
+# gazelle:prefix github.com/knights-analytics/tokenizers
 gazelle(
     name = "gazelle",
 )
@@ -53,6 +53,6 @@ go_library(
         ":tokenizers_rs",
     ],
     cgo = True,
-    importpath = "github.com/daulet/tokenizers",
+    importpath = "github.com/knights-analytics/tokenizers",
     visibility = ["//visibility:public"],
 )

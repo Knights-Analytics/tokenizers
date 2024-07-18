@@ -8,11 +8,11 @@ Go bindings for the [HuggingFace Tokenizers](https://github.com/huggingface/toke
 
 ### Using pre-built binaries
 
-If you don't want to install Rust toolchain, build it in docker: `docker build --platform=linux/amd64 -f release/Dockerfile .` or use prebuilt binaries from the [releases](https://github.com/daulet/tokenizers/releases) page. Prebuilt libraries are available for:
+If you don't want to install Rust toolchain, build it in docker: `docker build --platform=linux/amd64 -f release/Dockerfile .` or use prebuilt binaries from the [releases](https://github.com/knights-analytics/tokenizers/releases) page. Prebuilt libraries are available for:
 
-* [darwin-arm64](https://github.com/daulet/tokenizers/releases/latest/download/libtokenizers.darwin-arm64.tar.gz)
-* [linux-arm64](https://github.com/daulet/tokenizers/releases/latest/download/libtokenizers.linux-arm64.tar.gz)
-* [linux-amd64](https://github.com/daulet/tokenizers/releases/latest/download/libtokenizers.linux-amd64.tar.gz)
+* [darwin-arm64](https://github.com/knights-analytics/tokenizers/releases/latest/download/libtokenizers.darwin-arm64.tar.gz)
+* [linux-arm64](https://github.com/knights-analytics/tokenizers/releases/latest/download/libtokenizers.linux-arm64.tar.gz)
+* [linux-amd64](https://github.com/knights-analytics/tokenizers/releases/latest/download/libtokenizers.linux-amd64.tar.gz)
 
 ## Getting started
 
@@ -21,7 +21,7 @@ TLDR: [working example](example/main.go).
 Load a tokenizer from a JSON config:
 
 ```go
-import "github.com/daulet/tokenizers"
+import "github.com/knights-analytics/tokenizers"
 
 tk, err := tokenizers.FromFile("./data/bert-base-uncased.json")
 if err != nil {
@@ -53,13 +53,13 @@ go test . -bench=. -benchmem -benchtime=10s
 
 goos: darwin
 goarch: arm64
-pkg: github.com/daulet/tokenizers
+pkg: github.com/knights-analytics/tokenizers
 BenchmarkEncodeNTimes-10     	  959494	     12622 ns/op	     232 B/op	      12 allocs/op
 BenchmarkEncodeNChars-10      1000000000	     2.046 ns/op	       0 B/op	       0 allocs/op
 BenchmarkDecodeNTimes-10     	 2758072	      4345 ns/op	      96 B/op	       3 allocs/op
 BenchmarkDecodeNTokens-10    	18689725	     648.5 ns/op	       7 B/op	       0 allocs/op
 PASS
-ok   github.com/daulet/tokenizers 126.681s
+ok   github.com/knights-analytics/tokenizers 126.681s
 ```
 
 Run equivalent Rust tests with `cargo bench`.

@@ -2,7 +2,7 @@ Run with `go test -bench=Decode -count=10 -run=^\$ > test/benchmark/go_results.t
 
 goos: darwin
 goarch: arm64
-pkg: github.com/daulet/tokenizers
+pkg: github.com/knights-analytics/tokenizers
 BenchmarkDecodeNTimes-10     	  239250	      4343 ns/op
 BenchmarkDecodeNTimes-10     	  271682	      4356 ns/op
 BenchmarkDecodeNTimes-10     	  274546	      4346 ns/op
@@ -24,11 +24,11 @@ BenchmarkDecodeNTokens-10    	 1850312	       649.7 ns/op
 BenchmarkDecodeNTokens-10    	 1838618	       640.8 ns/op
 BenchmarkDecodeNTokens-10    	 1881645	       642.7 ns/op
 PASS
-ok  	github.com/daulet/tokenizers	31.929s
+ok  	github.com/knights-analytics/tokenizers	31.929s
 
 goos: darwin
 goarch: arm64
-pkg: github.com/daulet/tokenizers
+pkg: github.com/knights-analytics/tokenizers
                  │ test/benchmark/go_results.txt │
                  │            sec/op             │
 DecodeNTimes-10                      4.353µ ± 0%
